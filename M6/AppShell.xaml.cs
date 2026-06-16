@@ -1,10 +1,13 @@
-﻿namespace M6
+﻿namespace M6;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+
+        Routing.RegisterRoute(
+            nameof(Views.EditPartnerPage),
+            typeof(Views.EditPartnerPage));
     }
 }

@@ -5,28 +5,71 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:M6.ViewModels"
     x:Class="M6.Views.PartnersPage"
+    Shell.NavBarIsVisible="False"
     BackgroundColor="#FFFFFF">
 
     <ContentPage.BindingContext>
         <viewModels:PartnersViewModel/>
     </ContentPage.BindingContext>
 
-    <Grid RowDefinitions="Auto,*">
+    <Grid RowDefinitions="Auto,Auto,*">
 
-        <VerticalStackLayout>
+        <!-- Шапка -->
+
+        <Border
+            Grid.Row="0"
+            BackgroundColor="#F4E8D3"
+            Padding="15">
+
+            <HorizontalStackLayout
+                Spacing="15"
+                VerticalOptions="Center">
+
+                <Image
+                    Source="logo.png"
+                    HeightRequest="70"
+                    WidthRequest="70"
+                    Aspect="AspectFit"/>
 
                 <Label
-                    Padding="15"
                     Text="Список партнеров"
                     FontSize="28"
                     FontAttributes="Bold"
+                    VerticalOptions="Center"
                     TextColor="Black"/>
 
-            </VerticalStackLayout>
+            </HorizontalStackLayout>
 
-            <CollectionView
+        </Border>
+
+        <!-- Кнопка добавления -->
+
+        <Button
             Grid.Row="1"
-            ItemsSource="{Binding Partners}">
+            Text="Добавить партнера"
+            Margin="10"
+            HeightRequest="50"
+            FontAttributes="Bold"
+            BackgroundColor="#67BA80"
+            TextColor="White"
+            Clicked="AddPartner_Clicked"/>
+
+        <!-- Список -->
+
+        <CollectionView
+            Grid.Row="2"
+            x:Name="PartnersCollection"
+            ItemsSource="{Binding Partners}"
+            SelectionMode="Single"
+            SelectionChanged="Partners_SelectionChanged">
+
+            <CollectionView.ItemsLayout>
+
+                <LinearItemsLayout
+                    Orientation="Vertical"
+                    ItemSpacing="15"/>
+
+            </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
 
