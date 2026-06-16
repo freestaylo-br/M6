@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:M6.ViewModels"
+    x:Class="M6.Views.PartnersPage"
+    BackgroundColor="#FFFFFF">
+
+    <ContentPage.BindingContext>
+        <viewModels:PartnersViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="Auto,*">
+
+        <VerticalStackLayout>
+
+                <Label
+                    Padding="15"
+                    Text="Список партнеров"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="Black"/>
+
+            </VerticalStackLayout>
+
+            <CollectionView
+            Grid.Row="1"
+            ItemsSource="{Binding Partners}">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border
+                        Margin="10"
+                        Padding="15"
+                        Stroke="#67BA80"
+                        StrokeThickness="2"
+                        BackgroundColor="#F4E8D3">
+
+                        <Grid
+                            ColumnDefinitions="*,Auto">
+
+                            <VerticalStackLayout
+                                Grid.Column="0"
+                                Spacing="5">
+
+                                <Label
+                                    FontSize="18"
+                                    FontAttributes="Bold">
+
+                                    <Label.FormattedText>
+
+                                        <FormattedString>
+
+                                            <Span
+                                                Text="{Binding PartnerType}" />
+
+                                            <Span
+                                                Text=" | " />
+
+                                            <Span
+                                                Text="{Binding PartnerName}" />
+
+                                        </FormattedString>
+
+                                    </Label.FormattedText>
+
+                                </Label>
+
+                                <Label
+                                    Text="{Binding DirectorFullName,
+                                    StringFormat='Директор: {0}'}"/>
+
+                                <Label
+                                    Text="{Binding PhoneNumber,
+                                    StringFormat='Телефон: {0}'}"/>
+
+                                <Label
+                                    Text="{Binding Rating,
+                                    StringFormat='Рейтинг: {0}'}"/>
+
+                            </VerticalStackLayout>
+
+                            <Label
+                                Grid.Column="1"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                VerticalOptions="Start"
+                                Text="{Binding Discount,
+                                StringFormat='{0}%'}"/>
+
+                        </Grid>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>
