@@ -13,6 +13,7 @@
             Spacing="10">
 
             <Button
+                BackgroundColor="#67BA80"
                 Text="Назад"
                 Clicked="Back_Clicked"/>
 
@@ -86,7 +87,7 @@
             <Button
                 x:Name="DeleteButton"
                 Text="Удалить"
-                BackgroundColor="Red"
+                BackgroundColor="#67BA80"
                 TextColor="White"
                 Clicked="Delete_Clicked"/>
 

@@ -16,12 +16,8 @@
 
         <!-- Шапка -->
 
-        <Border
-            Grid.Row="0"
-            BackgroundColor="#F4E8D3"
-            Padding="15">
-
             <HorizontalStackLayout
+                Padding="15"
                 Spacing="15"
                 VerticalOptions="Center">
 
@@ -40,11 +36,7 @@
 
             </HorizontalStackLayout>
 
-        </Border>
-
-        <!-- Кнопка добавления -->
-
-        <Button
+            <Button
             Grid.Row="1"
             Text="Добавить партнера"
             Margin="10"
@@ -53,8 +45,6 @@
             BackgroundColor="#67BA80"
             TextColor="White"
             Clicked="AddPartner_Clicked"/>
-
-        <!-- Список -->
 
         <CollectionView
             Grid.Row="2"
@@ -78,8 +68,6 @@
                     <Border
                         Margin="10"
                         Padding="15"
-                        Stroke="#67BA80"
-                        StrokeThickness="2"
                         BackgroundColor="#F4E8D3">
 
                         <Grid
